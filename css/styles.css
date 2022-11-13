@@ -22,6 +22,8 @@
     /* Others */
     --indent: 30px;
     --items: 3;
+    --duration: 250ms;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Base styles */
@@ -120,6 +122,9 @@ img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+
+    transition: color var(--duration) var(--timing-function), 
+    background-color var(--duration);
 }
 
 .socials-link:hover,
@@ -191,6 +196,8 @@ img {
     letter-spacing: 0.02em;
 
     color: currentColor;  
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 
@@ -200,7 +207,22 @@ img {
 }
 
 .link-current {
+    position: relative;
+   
     color: var(--accent-color);
+}
+
+.link-current::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+
+    background-color: var(--accent-color);
 }
 
 .nav-link,
@@ -227,6 +249,8 @@ img {
     letter-spacing: 0.02em;
 
     color: var(--header-contacts-color);
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 .contact-link:hover,
@@ -396,6 +420,9 @@ img {
     color: var(--icons-color);
     border: 1px solid var(--icons-color);
     border-radius: 4px;
+
+    transition: color var(--duration) var(--timing-function), 
+    border var(--duration);
 }
 
 .regular-customers-link:hover,
@@ -451,6 +478,8 @@ margin-bottom: 9px;
     font-style: normal;
     line-height: calc(24/14);
     letter-spacing: 0.03em;
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 .address:hover,
@@ -459,12 +488,15 @@ margin-bottom: 9px;
 }
 
 .contact-link-footer {
-    color: var(--footer-contact-color);
+    display: inline-block;
+
     font-style: normal;
     line-height: calc(24/14);
     letter-spacing: 0.03em;
 
-    display: inline-block;
+    color: var(--footer-contact-color);
+
+    transition: color var(--duration) var(--timing-function);
 }
 
 .contact-link-footer:hover,
@@ -515,8 +547,11 @@ margin-bottom: 9px;
     line-height: calc(26/16);
     letter-spacing: 0.03em;
     background-color: var(--secondary-bcg-color);
-    padding: 6px 22px
+    padding: 6px 22px;
 
+    transition: color var(--duration) var(--timing-function),
+    background-color var(--duration),
+    box-shadow var(--duration);
 }
 
 .portfolio-btn:hover,
@@ -534,6 +569,10 @@ margin-bottom: 9px;
 .examples-list {
     padding-right: auto;
     padding-left: auto;
+}
+
+.card-set-item {
+    transition: box-shadow var(--duration) var(--timing-function);
 }
 
 .card-set-item:hover,
